@@ -8,8 +8,16 @@
 		<widget-row>
             <widget-cell>
                 <h2>{{data.value.message}}</h2>
+                
             </widget-cell>
         </widget-row>
+    	<ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" ng-class="active" 
+                ng-click="showDetails()">
+                <a href="" role="tab">Available</a>
+            </li>
+        </ul>
+    	<div id="board" style="width: 400px"></div>
 </script>
 
 <!-- Menu template -->
