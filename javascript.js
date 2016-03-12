@@ -3,6 +3,10 @@ angular.module('portalApp')
 // Widget controller - runs every time widget is shown
 .controller('portalChessCtrl', ['$scope', '$http', '$q', 'portalChessFactory', function ($scope, $http, $q, portalChessFactory) {
 
+    var imports = [
+    "chessboard.js"
+	];
+    
     // Widget Configuration
     $scope.portalHelpers.config = {
         // make 'widgetMenu.html' the template for the top right menu
@@ -14,9 +18,12 @@ angular.module('portalApp')
 
     // initialize the service
     portalChessFactory.init($scope);
-
+    
 	// Show main view in the first column
 	$scope.portalHelpers.showView('main.html', 1);
+    $scope.showDetails = function () {
+    	var board = ChessBoard('board', 'start');
+    }
 	
 }])
 // Factory maintains the state of the widget
@@ -33,6 +40,7 @@ angular.module('portalApp')
 		
 		initialized.value = true;
 
+        
 		// Place your init code here:
 		data.value={message:"Welcome to Portal SDK!"};
 	}
